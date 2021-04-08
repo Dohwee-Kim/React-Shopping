@@ -1,2 +1,3 @@
-# myshopify_react
-Personal shopping web-app built in React and modern web technologies
+# Personal garage-sale web application
+
+Built with React
