@@ -1,3 +1,4 @@
-# Personal garage-sale web application
+# Personal Shoes shopping web application
 
-Built with React
+Shoooes is the new way to shop your shoes ! 
+
