@@ -8,6 +8,18 @@ function App() {
   let [titleState, titleModify] = useState(['남자 코트 추천','킹왕짱','넓은길댁']);  //스테이트 만드는법
   let [thumbsUp, modifyThumbsUp] = useState(0);
   let [isTitleClicked, modifyIsTitleClicked] = useState(false);
+  let [isBtnClicked, modifyIsBtnClicked] = useState(false);
+
+  let [titleIndex, modifyTitleIndex] = useState(false);
+
+  function repeatUI() {
+    var arr = [];
+    for (var i =0; i < 3; i++) {
+      arr.push(<div> 안녕</div>)
+    }
+
+    return arr
+  }
 
   //리턴 안에는 반드시 하나의 HTML 태그만 시작하고 끝나야함. 
   return (
@@ -35,14 +47,36 @@ function App() {
           <p> 2월 17일 발행</p>
         </div>
 
+         
+        { //map 사용법 
+          titleState.map(function(element){
+            return (
+              <div className="list">
+                <h3 onClick={ ()=>{modifyIsTitleClicked(!isTitleClicked)}} > {element} </h3>
+                <p> 2월 17일 발행</p>
+              </div>
+              )
+          })
+        }
+
+        { //repeatUI()
+        }
+          <button onClick={()=>{modifyTitleIndex(0); modifyIsBtnClicked(!isBtnClicked)}}>Button</button>
+          <button onClick={()=>{modifyTitleIndex(1); modifyIsBtnClicked(!isBtnClicked)}}>Button</button>
+          <button onClick={()=>{modifyTitleIndex(2); modifyIsBtnClicked(!isBtnClicked)}}>Button</button>
+        
         
         {
           isTitleClicked=== true
           ? <Modal></Modal> 
           : null   //텅빈 HTML 이라는 뜻
         }
-        
-        
+
+        {
+          isBtnClicked === true 
+          ? <SecondModal titleState={titleState} titleIndex={titleIndex}></SecondModal>
+          : null
+        }
 
     </div>
   );
@@ -54,6 +88,17 @@ function Modal() {
   return (
     <div className="modal-screen">
       <h2> title here</h2>
+      <p>Date</p>
+      <p>Detail</p>
+    </div>
+  )
+}
+
+//Props 로 전송을 해야 사용가능
+function SecondModal(p) {
+  return (
+    <div className="modal-screen">
+      <h2> {p.titleState[p.titleIndex]} </h2>
       <p>Date</p>
       <p>Detail</p>
     </div>
