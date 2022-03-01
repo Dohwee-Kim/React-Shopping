@@ -9,8 +9,9 @@ function App() {
   let [thumbsUp, modifyThumbsUp] = useState(0);
   let [isTitleClicked, modifyIsTitleClicked] = useState(false);
   let [isBtnClicked, modifyIsBtnClicked] = useState(false);
-
   let [titleIndex, modifyTitleIndex] = useState(false);
+
+  let [inputStr, modifyInputStr] = useState(''); //기본값 empty string 
 
   function repeatUI() {
     var arr = [];
@@ -47,11 +48,16 @@ function App() {
           <p> 2월 17일 발행</p>
         </div>
 
+        <div className="publish">
+          <input />
+          <button>저장</button>
+        </div>
+
          
-        { //map 사용법 
-          titleState.map(function(element){
+        { //map 사용법  i 는 이뉴머레이터 같은 역할을 해준다
+          titleState.map(function(element, i){
             return (
-              <div className="list">
+              <div className="list" key={i}>
                 <h3 onClick={ ()=>{modifyIsTitleClicked(!isTitleClicked)}} > {element} </h3>
                 <p> 2월 17일 발행</p>
               </div>
@@ -61,11 +67,17 @@ function App() {
 
         { //repeatUI()
         }
+
+          
+          <input onChange={ (e)=>{ modifyInputStr(e.target.value); } }></input>
+
+
           <button onClick={()=>{modifyTitleIndex(0); modifyIsBtnClicked(!isBtnClicked)}}>Button</button>
           <button onClick={()=>{modifyTitleIndex(1); modifyIsBtnClicked(!isBtnClicked)}}>Button</button>
           <button onClick={()=>{modifyTitleIndex(2); modifyIsBtnClicked(!isBtnClicked)}}>Button</button>
         
-        
+
+          
         {
           isTitleClicked=== true
           ? <Modal></Modal> 
