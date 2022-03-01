@@ -32,9 +32,21 @@ function App() {
       
       <div className="container">
         <div className="row">
-          <div className="col-md-4">dsdffs</div>
-          <div className="col-md-4">dsdffs</div>
-          <div className="col-md-4">dsdffs</div>
+          <div className="col-md-4">
+            <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%"></img>
+            <h4>Black Sneakers</h4>
+            <p>View more</p>
+          </div>
+          <div className="col-md-4">
+            <img src="https://codingapple1.github.io/shop/shoes2.jpg" width="100%"></img>
+            <h4>Black Pink</h4>
+            <p>View more</p>
+          </div>
+          <div className="col-md-4">
+          <img src="https://codingapple1.github.io/shop/shoes3.jpg" width="100%"></img>
+            <h4>Gray Gordan</h4>
+            <p>View more</p>
+          </div>
         </div>
       </div>
 
