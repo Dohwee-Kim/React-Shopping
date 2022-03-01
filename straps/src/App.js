@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {Nav, Navbar, Container, NavDropdown, Button} from 'react-bootstrap';
 import './App.css';
 import shoesData from './data.js';
+import { render } from 'react-dom';
 
 
 
@@ -37,25 +38,13 @@ function App() {
       
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
-            <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%"></img>
-            <h4>{shoes[0].title}</h4>
-            <p>${shoes[0].price}</p>
-          </div>
-          <div className="col-md-4">
-            <img src="https://codingapple1.github.io/shop/shoes2.jpg" width="100%"></img>
-            <h4>{shoes[1].title}</h4>
-            <p>${shoes[1].price}</p>
-          </div>
-          <div className="col-md-4">
-          <img src="https://codingapple1.github.io/shop/shoes3.jpg" width="100%"></img>
-            <h4>{shoes[2].title}</h4>
-            <p>${shoes[2].price}</p>
-          </div>
+          {
+            shoesData.map((element, i)=>{
+              return <RenderShoesUI shoes={shoes[i]} key={i}/>
+            })
+          }
         </div>
       </div>
-
-
 
     </div>
   );
@@ -74,6 +63,16 @@ function JumboTronSample(){
       </p>
     </div>
   )
+}
+
+function RenderShoesUI(props){
+    return (
+      <div className="col-md-4">
+        <img src= {props.shoes.img_src} width="100%"/>
+        <h4>{props.shoes.title}</h4>
+        <p>${props.shoes.price}</p>
+      </div>
+    )
 }
 
 export default App;
