@@ -2,10 +2,15 @@ import logo from './logo.svg';
 import React, {useState} from 'react';
 import {Nav, Navbar, Container, NavDropdown, Button} from 'react-bootstrap';
 import './App.css';
+import shoesData from './data.js';
 
 
 
 function App() {
+
+  
+  let [shoes, shoesUpdate] = useState(shoesData);
+
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -34,18 +39,18 @@ function App() {
         <div className="row">
           <div className="col-md-4">
             <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%"></img>
-            <h4>Black Sneakers</h4>
-            <p>View more</p>
+            <h4>{shoes[0].title}</h4>
+            <p>${shoes[0].price}</p>
           </div>
           <div className="col-md-4">
             <img src="https://codingapple1.github.io/shop/shoes2.jpg" width="100%"></img>
-            <h4>Black Pink</h4>
-            <p>View more</p>
+            <h4>{shoes[1].title}</h4>
+            <p>${shoes[1].price}</p>
           </div>
           <div className="col-md-4">
           <img src="https://codingapple1.github.io/shop/shoes3.jpg" width="100%"></img>
-            <h4>Gray Gordan</h4>
-            <p>View more</p>
+            <h4>{shoes[2].title}</h4>
+            <p>${shoes[2].price}</p>
           </div>
         </div>
       </div>
