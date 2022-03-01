@@ -13,6 +13,8 @@ function App() {
 
   let [inputStr, modifyInputStr] = useState(''); //기본값 empty string 
 
+  let [titleInput, modifyTitleInput] = useState(''); //기본값 empty string 
+
   function repeatUI() {
     var arr = [];
     for (var i =0; i < 3; i++) {
@@ -49,8 +51,12 @@ function App() {
         </div>
 
         <div className="publish">
-          <input />
-          <button>저장</button>
+          <input onChange={ (e)=>{ modifyTitleInput(e.target.value); } } />
+          <button onClick={()=>{ 
+            //불러와서
+            //새로운 변수를 만들고 
+            //덮어 씌운다 
+            titleModify( titleState.concat(titleInput))} } >저장</button>
         </div>
 
          
