@@ -4,7 +4,7 @@ import {Nav, Navbar, Container, NavDropdown, Button} from 'react-bootstrap';
 import './App.css';
 import shoesData from './data.js';
 import { render } from 'react-dom';
-
+import {Link, Route, Switch} from 'react-router-dom'; //다 사실 HTML 태그들임 !
 
 
 function App() {
